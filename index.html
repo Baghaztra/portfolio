@@ -11,8 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <!-- Fontwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -21,11 +20,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body >
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-bisque sticky-top">
+    <nav class="navbar navbar-expand-lg bg-bisque fixed-top shadow">
         <div class="container">
-            <h3 class="title font-red">Baghaztra</h3>
+            <h3 class="navbar-brand title font-red">Hi!</h3>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-list font-red"></i>
@@ -33,16 +32,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link font-red" aria-current="page" href="#home">Home</a>
+                        <a class="nav-link font-red" onclick="hideAbout()" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-red" href="#about">About</a>
+                        <a class="nav-link font-red" onclick="showAbout()" href="#home">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link font-red" href="#projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link font-red" href="#contact">Contact</a>
+                        <a class="nav-link font-red" onclick="navbarCollapse()" href="#projects">Projects</a>
                     </li>
                 </ul>
             </div>
@@ -50,45 +46,56 @@
     </nav>
 
     <!-- Jumbotron -->
-    <section id="home" class="jumbotron text-center mb-3 "
-        style="height: 95vh; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-        <div class="rounded"
-            style="background-image: url('image/bg.jpg'); background-size: cover; background-position: center; padding: 20px; width: 95%; border: 10px solid var(--bisque);">
-            <img src="image/pfp.png" alt="baghaztra" width="200" class="rounded-circle mb-3"
-                style="border: 5px solid var(--bisque);">
-            <div class="align-item-left">
-                <h2 class="title font-red bg-bisque rounded p-1">Baghaztra Van Ril</h2>
-                <p class="title font-orange bg-bisque rounded p-1">Information Technology Student</p>
+    <section id="home" class="jumbotron text-center mb-3"
+        style="min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+        <div class="row" style="height: 10vh;"></div>
+        <div class="row container rounded bg-bisque mb-5">
+            <!-- Profile -->
+            <div class="col-md">
+                <div
+                    style="background-image: url('image/bg.jpg'); background-size: cover; background-position: center; padding: 20px; width: 100%; border: 10px solid var(--bisque);">
+                    <img src="image/pfp.png" alt="baghaztra" width="200" class="rounded-circle mb-3"
+                        style="border: 5px solid var(--bisque);">
+                    <div class="align-item-left">
+                        <h2 class="title font-red bg-bisque rounded p-1">Baghaztra Van Ril</h2>
+                        <p class="title font-green bg-bisque rounded p-1">Information Technology Student</p>
+                        <button id="toggleAbout" onclick="toggleAbout()" class="btn btn-red">About Me</button>
+                    </div>
+                </div>
+            </div>
+            <!-- About -->
+            <div class="col-md-4" id="about">
+                <div class="container my-3">
+                    <div class="row">
+                        <div class="col text-center  position-relative">
+                            <h2 class="title font-red mt-2">About Me</h2>
+                            <button id="toggleLang" class="btn btn-sm btn-red mt-2 position-absolute top-0 end-0"><i
+                                    class='fa-solid fa-language'></i> Id</button>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md mb-3">
+                            <p id="textEn">Student of Information Technology Department, Software Engineering Technology
+                                study program with
+                                special interest in programming logic. Proficiency in OOP concepts, web programming, and
+                                MySQL
+                                database management. Have a special interest in game development.</p>
+                            <p id="textId" style="display: none;">Mahasiswa jurusan Teknologi Informasi, program studi
+                                Teknologi Rekayasa Perangkat Lunak dengan
+                                ketertarikan khusus pada logika pemrograman. Memiliki kemampuan dalam konsep OOP,
+                                pemrograman
+                                web, dan pengelolaan database MySQL. Memiliki ketertarikan khusus pada dalam bidang game
+                                developer.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About -->
-    <section id="about">
-        <div class="container py-3">
-            <div class="row">
-                <div class="col text-center">
-                    <h2 class="title font-red">About Me</h2>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md">
-                    <p>Student of Information Technology Department, Software Engineering Technology study program with
-                        special interest in programming logic. Proficiency in OOP concepts, web programming, and MySQL
-                        database management. Have a special interest in game development.</p>
-                </div>
-                <div class="col-md">
-                    <p>Mahasiswa jurusan Teknologi Informasi, program studi Teknologi Rekayasa Pernagkat Lunak dengan
-                        ketertarikan khusus pada logika pemrograman. Memiliki kemampuan dalam konsep OOP, pemrograman
-                        web, dan pengelolaan database MySQL. Memiliki ketertarikan khusus pada dalam bidang game
-                        developer.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-<hr>
     <section id="projects">
         <div class="container">
+            <div style="height: 5rem;"></div>
             <div class="row text-center my-3">
                 <div class="col">
                     <h2 class="title font-red">My Projects</h2>
@@ -96,85 +103,128 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="image/projects/1.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="card shadow">
+                        <img src="image/projects/tl1.png" class="card-img-top rounded-top" alt="To do list"
+                            data-images='["image/projects/tl1.png", "image/projects/tl2.png", "image/projects/tl3.png", "image/projects/tl4.png"]'
+                            data-title="Personal To-Do List App">
+                        <div class="card-body bg-orange rounded-bottom">
+                            <h5 class="title font-red rounded bg-bisque p-2">Personal To-Do List App</h5>
+                            <p class="card-text font-bisque px-2">Created a web-based application using Laravel for a customized to-do list, tailored specifically to my personal needs for individual use.</p>
                         </div>
-                      </div>
+                    </div>
                 </div>
+
                 <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="image/projects/1.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="card shadow">
+                        <img src="image/projects/kc1.png" class="card-img-top rounded-top" alt="Kamikaze Challenger"
+                        data-images='["image/projects/kc1.png", "image/projects/kc2.png", "image/projects/kc3.png"]'
+                        data-title="Kamikaze Challenger">
+                        <div class="card-body bg-orange rounded-bottom">
+                            <h5 class="title font-red rounded bg-bisque p-2">Kamikaze Challenger</h5>
+                            <p class="card-text font-bisque px-2">A simple 2D endless shooting game where the player controls a warship under attack by Japanese kamikaze planes. Developed independently using Unity for PC.</p>
                         </div>
-                      </div>
+                    </div>
                 </div>
+                
                 <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="image/projects/1.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="card shadow">
+                        <img src="image/projects/dc1.png" class="card-img-top rounded-top" alt="DICE"
+                        data-images='["image/projects/dc1.png", "image/projects/dc2.png", "image/projects/dc3.png", "image/projects/dc4.png", "image/projects/dc5.png"]'
+                        data-title="DICE">
+                        <div class="card-body bg-orange rounded-bottom">
+                            <h5 class="title font-red rounded bg-bisque p-2">DICE</h5>
+                            <p class="card-text font-bisque px-2">Team leader and JavaScript programmer for a website featuring a variety of simple, dice-based games created with JavaScript.</p>
+                            <a class="px-2 font-green" href="https://baghaztra.github.io/DICE/" target="_blank">See the project</a>
                         </div>
-                      </div>
+                    </div>
                 </div>
+                
                 <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="image/projects/1.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="card shadow">
+                        <img src="image/projects/pm1.png" class="card-img-top rounded-top" alt="Pesona Simarasok"
+                        data-images='["image/projects/pm1.png", "image/projects/pm2.png", "image/projects/pm3.png", "image/projects/pm4.png"]'
+                        data-title="Pesona Simarasok">
+                        <div class="card-body bg-orange rounded-bottom">
+                            <h5 class="title font-red rounded bg-bisque p-2">Pesona Simarasok</h5>
+                            <p class="card-text font-bisque px-2">Backend developer for a website promoting a tourism destination called Simarasok, built with Laravel. This project was part of the Talent Scouting Academy program conducted on campus.</p>
+                            <a class="px-2 font-green" href="http://pesonasimarasok.pnp.ac.id/" target="_blank">See the project</a>
+                            <a class="px-2 font-green" href="https://github.com/Baghaztra/TSA_Simarasok" target="_blank">Src</a>
                         </div>
-                      </div>
+                    </div>
                 </div>
+                
                 <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="image/projects/1.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="card shadow">
+                        <img src="image/projects/nk1.png" class="card-img-top rounded-top" alt="Nongki"
+                        data-images='["image/projects/nk1.png", "image/projects/nk2.png", "image/projects/nk3.png", "image/projects/nk4.png"]'
+                        data-title="Nongki">
+                        <div class="card-body bg-orange rounded-bottom">
+                            <h5 class="title font-red rounded bg-bisque p-2">Nongki</h5>
+                            <p class="card-text font-bisque px-2">Backend/fullstack developer of web application for finding hangout spots such as cafes, workspaces, and more. This project was developed for the FireTech2024 hackathon event at Andalas University.</p>
+                            <a class="px-2 font-green" href="https://github.com/Baghaztra/Nongki" target="_blank">Src</a>
                         </div>
-                      </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow">
+                        <img src="image/projects/br1.png" class="card-img-top rounded-top" alt="..."
+                        data-images='["image/projects/br1.png", "image/projects/br2.png", "image/projects/br3.png"]'
+                        data-title="Bro Rimbo">
+                        <div class="card-body bg-orange rounded-bottom">
+                            <h5 class="title font-red rounded bg-bisque p-2">Bro Rimbo</h5>
+                            <p class="card-text font-bisque px-2">Backend programmer who contributed to the development of an employee information system for the Forestry Department of West Sumatra. I was responsible for addressing backend issues related to the leave management feature.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div style="height: 5rem;"></div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact">
-        <div class="row text-center my-3">
-            <div class="col">
-                <h2 class="title font-red">Contact Me</h2>
+    <!-- Modal -->
+    <div class="modal fade" id="dynamicModal" tabindex="-1" aria-labelledby="dynamicModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-green">
+            <div class="modal-header bg-red">
+            <h5 class="modal-title title font-bisque" id="dynamicModalLabel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <!-- Carousel -->
+            <div id="carouselDynamic" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                </div>
+                <div class="carousel-inner">
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselDynamic" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselDynamic" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <form>
-                    <div class="mb-3">
-                      <label for="nama" class="form-label">Nama</label>
-                      <input type="email" class="form-control" id="nama">
-                    </div>
-                    <div class="mb-3">
-                      <label for="email" class="form-label">Email</label>
-                      <input type="email" class="form-control" id="email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="pesan" class="form-label">Pesan</label>
-                        <textarea class="form-control" id="pesan" rows="3"></textarea>
-                      </div>
-                    <button type="submit" class="btn btn-primary">Kirim</button>
-                  </form>
-            </div>
         </div>
-    </section>
-
+    </div>
+    
     <!-- Footer -->
-     <footer class="bg-red font-bisque p-3 title">
-        <p>Created with <i class="fa-solid fa-heart"></i> by <a class="font-bisque fw-bold" href="https://www.instagram.com/baghaztra">Baghaztra</a></p>
-     </footer>
+    <footer class="bg-red font-bisque p-3 title">
+        <div class="container">
+            <p>Created with <i class="fa-solid fa-heart"></i> by <a class="font-bisque fw-bold"
+                    href="https://www.instagram.com/baghaztra">Baghaztra</a></p>
+        </div>
+    </footer>
 
+    <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <!-- My script -->
+    <script src="script.js"></script>
 </body>
 
 </html>
