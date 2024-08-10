@@ -1,0 +1,65 @@
+:root {
+  --red: #C33740;
+  --orange: #D7A278;
+  --bisque: #E3D5B8;
+  --brown: #69433A;
+  --green: #679499;
+  /* --red: #F95031;
+  --orange: #FA7E1E;
+  --bisque: #FBE6A5;
+  --brown: #3A1C1E;
+  --green: #7FD2C0; */
+}
+
+body {
+  font-family: 'Oswald', sans-serif;
+  background-color: var(--bisque);
+}
+
+.title {
+  font-family: 'Lobster Two', cursive;
+}
+
+.bg-red{
+  background-color: var(--red);
+}
+.bg-orange{
+  background-color: var(--orange);
+}
+.bg-bisque{
+  background-color: var(--bisque);
+}
+.bg-brown{
+  background-color: var(--brown);
+}
+.bg-green{
+  background-color: var(--green);
+}
+
+.font-red{
+  color: var(--red);
+}
+.font-orange{
+  color: var(--orange);
+}
+.font-bisque{
+  color: var(--bisque);
+}
+.font-brown{
+  color: var(--brown);
+}
+.font-green{
+  color: var(--green);
+}
+
+a.font-red:hover,
+a.font-red:focus,
+a.font-red:active {
+  color: var(--orange);
+}
+
+.jumbotron{
+  padding: 2rem 1rem;
+  background-color: var(--red);
+}
+
